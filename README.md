@@ -2,38 +2,35 @@ Solvers Database
 
 An ancient coin catalog and AI-powered identification system built with Next.js and Roboflow.
 
-<p align="left"> <img src="https://img.shields.io/badge/Next.js-16-black" /> <img src="https://img.shields.io/badge/TypeScript-5-blue" /> <img src="https://img.shields.io/badge/Roboflow-AI-orange" /> <img src="https://img.shields.io/badge/License-MIT-green" /> </p>
 Overview
 
-Solvers Database is a lightweight numismatic viewer and coin recognition tool.
-It showcases a curated set of 17 ancient Greek and Roman coins, each with metadata from Corpus Nummorum, and includes an integrated AI classifier powered by Roboflow that identifies coins from user-uploaded images.
+Solvers Database is a lightweight numismatic viewer and recognition tool.
+It features a curated collection of 17 ancient Greek and Roman coins with full metadata and an integrated AI classifier powered by Roboflow.
 
 Features
 
-📚 Browse Ancient Coins
-View obverse/reverse images, mints, dates, diameters, weights, and references.
+Browse a collection of authenticated ancient coins
 
-🧠 AI Coin Identification
-Upload a photo and get instant predictions from a Vision Transformer trained for ancient coin classification.
+Upload images to identify coins using a trained AI model
 
-🔗 Museum-Grade Metadata
-Includes mint data, provenance, and citations referencing Corpus Nummorum IDs.
+View mint, date, weight, dimensions, material, and provenance
 
-⚡ Fast & Modern UI
-Built with Next.js App Router, TailwindCSS, and shadcn/ui.
+Corpus Nummorum citations for academic reference
+
+Modern UI built with Next.js, TypeScript, Tailwind, and shadcn/ui
 
 Getting Started
 Prerequisites
 
-Node.js 18+
+Node.js 18 or higher
 
-pnpm or npm
+npm or pnpm
 
-A Roboflow account with a trained coin classification model
+Roboflow account with a trained classification model
 
 Installation
 
-Clone the project:
+Clone the repository:
 
 git clone <your-repo-url>
 cd solvers-database
@@ -46,16 +43,16 @@ npm install
 pnpm install
 
 
-Create an environment file:
+Create your environment file:
 
 cp .env.example .env.local
 
 
-Fill in your Roboflow credentials:
+Add your Roboflow credentials:
 
-ROBOFLOW_API_KEY=your_api_key
+ROBOFLOW_API_KEY=your_api_key_here
 ROBOFLOW_MODEL=your_model_name
-ROBOFLOW_VERSION=your_version
+ROBOFLOW_VERSION=your_model_version
 
 
 Run the development server:
@@ -65,26 +62,39 @@ npm run dev
 pnpm dev
 
 
-App will be available at:
-👉 http://localhost:3000
+Open the app at:
+http://localhost:3000
 
 Environment Variables
 Variable	Description	Required
-ROBOFLOW_API_KEY	Your Roboflow API key	✔️
-ROBOFLOW_MODEL	The model ID (e.g., ancient-coin-detector)	✔️
-ROBOFLOW_VERSION	Model version number	✔️
+ROBOFLOW_API_KEY	Roboflow API key	Yes
+ROBOFLOW_MODEL	Model name	Yes
+ROBOFLOW_VERSION	Model version	Yes
 Project Structure
 solvers-database/
 ├── app/
-│   ├── api/detect-coin/       # Backend API -> Roboflow inference
-│   ├── coins/[id]/            # Individual coin pages
-│   ├── detect/                # Image upload + prediction
-│   └── page.tsx               # Home page
+│   ├── api/detect-coin/       # Roboflow inference API
+│   ├── coins/[id]/            # Individual coin detail pages
+│   ├── detect/                # Image upload + AI prediction
+│   └── page.tsx               # Homepage
 ├── components/
-│   ├── coin-grid.tsx          # Coin gallery layout
+│   ├── coin-grid.tsx          # Grid view of all coins
 │   └── image-upload-detector.tsx
 └── public/
     └── images/                # Local coin images
+
+Platform Evaluation
+
+We evaluated several options:
+
+Platform	Reason
+Roboflow	Fast iteration, AutoML, easy deployment
+Teachable Machine	Simple, beginner-friendly, but limited for fine-grained classes
+Google AutoML	Slow and costly
+AWS SageMaker	Overkill for this project
+Custom PyTorch	Requires heavy infrastructure, slower development
+
+Final choice: Roboflow for rapid experimentation and simple API integration.
 
 Tech Stack
 
@@ -94,28 +104,12 @@ TypeScript
 
 Tailwind CSS
 
-shadcn/ui
+shadcn/ui components
 
-Roboflow Vision Transformer Model
+Roboflow Vision Transformer model
 
-Vercel (optional deployment)
-
-Model Training Notes
-
-This project uses a custom Roboflow model trained on:
-
-17 total classes
-
-34 museum-sourced images (obverse + reverse)
-
-Heavy domain-specific augmentation
-
-Final architecture: ViT-B/16 (ImageNet-21k pretrained)
-
-For details on model experimentation and results, see:
-👉 docs/AI_Model_Report.md (optional if you create it)
+Optional deployment via Vercel
 
 License
 
-This project is licensed under the MIT License.
-You are free to use, modify, and distribute this code.
+MIT License
