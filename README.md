@@ -1,10 +1,14 @@
-# Solvers Database
+# Solvers Coin Database
 
 An ancient coin catalog and AI-powered identification system built with Next.js and Roboflow.
+
+---
 
 ## Overview
 
 Solvers Database provides a curated dataset of 17 ancient coins and a Vision Transformer model that identifies them from uploaded images. Each coin entry includes mint, date, dimensions, material, and provenance sourced from Corpus Nummorum.
+
+---
 
 ## Features
 
@@ -13,6 +17,8 @@ Solvers Database provides a curated dataset of 17 ancient coins and a Vision Tra
 - Image upload interface for real-time predictions
 - Individual coin detail pages with metadata and citations
 - Built with Next.js App Router, TypeScript, Tailwind, and shadcn/ui
+
+---
 
 ## Getting Started
 
@@ -67,6 +73,28 @@ Application runs at:
 http://localhost:3000
 ```
 
+---
+
+## Training Guide (TestData Setup)
+
+A full step-by-step tutorial for creating and training the coin detection model is available here:
+
+**Create and Train a Coin Detection Model (Scribe Tutorial)**  
+https://scribehow.com/shared/Create_and_Train_a_Coin_Detection_Model__BbfkLq3yS7i7DqGd53ndTw
+
+You can also find all sample images and preparation data inside the `TestData/` folder of this repository.
+
+---
+
+## Live Demo
+
+You can view the fully deployed version of this project at:
+
+**Solvers Coin Database (Live App)**  
+https://solverscoindatabase.vercel.app/
+
+---
+
 ## Environment Variables
 
 | Variable            | Description                     | Required |
@@ -74,6 +102,8 @@ http://localhost:3000
 | ROBOFLOW_API_KEY    | Roboflow API key                | Yes      |
 | ROBOFLOW_MODEL      | Roboflow model name             | Yes      |
 | ROBOFLOW_VERSION    | Roboflow model version          | Yes      |
+
+---
 
 ## Project Structure
 
@@ -91,6 +121,8 @@ solvers-database/
     └── images/                # Local coin images
 ```
 
+---
+
 ## Platform Evaluation
 
 We evaluated several options:
@@ -105,6 +137,8 @@ We evaluated several options:
 
 **Final choice:** Roboflow for rapid experimentation and simple API integration.
 
+---
+
 ## Tech Stack
 
 - Next.js 16 (App Router)
@@ -113,6 +147,8 @@ We evaluated several options:
 - shadcn/ui
 - Roboflow Vision Transformer Model
 - Optional Vercel deployment
+
+---
 
 ## License
 
