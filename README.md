@@ -64,7 +64,6 @@ pnpm dev
 
 ## Project Structure
 
-\`\`\`
 ├── app/
 │   ├── api/detect-coin/     # Roboflow detection API
 │   ├── coins/[id]/          # Individual coin pages
@@ -74,7 +73,6 @@ pnpm dev
 │   ├── coin-grid.tsx        # Coin collection display
 │   └── image-upload-detector.tsx
 └── public/images/           # Coin images
-\`\`\`
 
 ## Tech Stack
 
